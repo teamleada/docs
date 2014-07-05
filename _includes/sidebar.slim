@@ -1,0 +1,48 @@
+aside#sidebar
+  section.sidebar-block.block-short
+    nav.navigation.pages-nav.home-nav
+      h6
+        a.nav-link href="/"
+          span.entypo &oacute;
+          | Leada Docs
+      small.thin.dimmed
+        | (last updated {{ site.time | date: "%d %B, %Y" }})
+
+  section.sidebar-block
+    nav.navigation.pages-nav
+      ul.plain-list.inline-list
+        li
+          a.nav-link href="/contributing"
+            span.entypo 6
+            | Contribute
+        li
+          a.nav-link href="/authors"
+            span.entypo ,
+            | Authors
+        li
+          a.nav-link href="/license"
+            span.entypo &copy;
+            | License
+
+  section.sidebar-block
+    h5.sidebar-title
+      a href="/chapters" Chapters Index
+    ol.navigation.chapters-list
+      | {% for chapter in site.chapters %}
+      |   {% capture url %}/chapters/{{ chapter | replace: ' ', '_' | downcase }}/{% endcapture %}
+      li.chapter
+        .sidebar-subtitle class=["{% if page.url == url %} page-active{% endif %}"]
+          strong
+            a.chapter-title href="{{ url }}"
+              | {{ chapter }}
+        ul.pseudo-list.recipes-list
+          | {% for site_page in site.pages %}
+          |   {% if site_page.url contains url %}
+          |     {% unless site_page.url == url %}
+          li.list-item.recipe class=["{% if page.url == site_page.url %} page-active{% endif %}"]
+            a.recipe-title href="{{ site_page.url }}"
+              | {{ site_page.title }}
+          |     {% endunless %}
+          |   {% endif %}
+          | {% endfor %}
+      | {% endfor %}
