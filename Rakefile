@@ -31,7 +31,7 @@ task :deploy do
     system("git init")
     system("git remote add origin git@github.com:teamleada/docs.git")
     system("git pull")
-    system("git checkout gh-pages")
+    system("git checkout -f gh-pages")
     system("git add . --all")
     system("git add -u")
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
