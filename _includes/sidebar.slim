@@ -29,11 +29,21 @@ aside#sidebar
       a href="/chapters" Chapters Index
     ol.navigation.chapters-list
       | {% for chapter in site.chapters %}
-      |   {% capture url %}/chapters/{{ chapter | replace: ' ', '_' | downcase }}{% endcapture %}
+      |   {% capture url %}/chapters/{{ chapter | replace: ' ', '_' | downcase }}/{% endcapture %}
       |   {% capture index_url %}{{ url }}/index.html{% endcapture %}
       li.chapter
         div class=["sidebar-subtitle"]
           strong
             a.chapter-title href="{{ url }}"
               | {{ chapter }}
+        ul.pseudo-list.recipes-list
+          | {% for site_page in site.pages %}
+          |   {% if site_page.url contains url %}
+          |     {% unless site_page.url == index_url %}
+          li.list-item.recipe
+            a.recipe-title href="{{ site_page.url }}"
+              | {{ site_page.title }}
+          |     {% endunless %}
+          |   {% endif %}
+          | {% endfor %}
       | {% endfor %}
