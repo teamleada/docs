@@ -11,8 +11,6 @@ Go to localhost:4002 to see the site.
 
 ## Deploying
 
-Then, you only need to run:
-
     rake deploy
 
 ## Contributing
