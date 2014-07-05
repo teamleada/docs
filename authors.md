@@ -5,4 +5,4 @@ title: Authors
 
 # Authors
 
-* Mark Miyashita *mark@teamleada.com
+* Mark Miyashita *mark@teamleada.com*
