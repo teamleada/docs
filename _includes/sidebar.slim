@@ -31,7 +31,7 @@ aside#sidebar
       | {% for chapter in site.chapters %}
       |   {% capture url %}/chapters/{{ chapter | replace: ' ', '_' | downcase }}/{% endcapture %}
       li.chapter
-        div class=["sidebar-subtitle"]
+        .sidebar-subtitle class=["{% if page.url == url %} page-active{% endif %}"]
           strong
             a.chapter-title href="{{ url }}"
               | {{ chapter }}
@@ -39,7 +39,7 @@ aside#sidebar
           | {% for site_page in site.pages %}
           |   {% if site_page.url contains url %}
           |     {% unless site_page.url == url %}
-          li.list-item.recipe
+          li.list-item.recipe class=["{% if page.url == site_page.url %} page-active{% endif %}"]
             a.recipe-title href="{{ site_page.url }}"
               | {{ site_page.title }}
           |     {% endunless %}
