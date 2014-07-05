@@ -26,12 +26,14 @@ task :deploy do
   puts "Getting ready to deploy."
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   puts "Generating site from source."
-  Rake::Task[:generate].execute
   cd "#{deploy_dir}" do
     system("git init")
     system("git remote add origin git@github.com:teamleada/docs.git")
     system("git pull")
     system("git checkout -f gh-pages")
+  end
+  Rake::Task[:generate].execute
+  cd "#{deploy_dir}" do
     system("git add . --all")
     system("git add -u")
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
