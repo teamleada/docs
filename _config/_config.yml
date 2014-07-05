@@ -1,4 +1,5 @@
 destination: _deploy
+permalink: pretty
 pygments: true
 lsi: false
 markdown: redcarpet
