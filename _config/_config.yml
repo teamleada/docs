@@ -1,0 +1,12 @@
+destination: _deploy
+pygments: true
+lsi: false
+markdown: redcarpet
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+
+chapters:
+  - Introduction

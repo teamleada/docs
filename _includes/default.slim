@@ -1,0 +1,68 @@
+doctype html
+
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    title The Rails Book &raquo; {{ page.title }}
+    link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"
+    link rel="stylesheet" type="text/css" href="/css/style.css"
+
+    | {% convert analytics.slim %}
+
+  body
+    section.container
+      header.header
+        h1
+          a href="/"
+            span.entypo &oacute;
+            span.title.ir The Rails Book
+
+      section.content
+        article.content-block
+          | {{ content }}
+
+        footer.footer.content-block
+          p
+            | some text goes here
+
+    aside#sidebar
+      section.sidebar-block.block-short
+        nav.navigation.pages-nav.home-nav
+          h6
+            a.nav-link href="/"
+              span.entypo &oacute;
+              | The Rails Book
+          small.thin.dimmed
+            | (last updated {{ site.time | date: "%d %B, %Y" }})
+
+      section.sidebar-block
+        nav.navigation.pages-nav
+          ul.plain-list.inline-list
+            li
+              a.nav-link href="/contributing"
+                span.entypo 6
+                | Contribute
+            li
+              a.nav-link href="/authors"
+                span.entypo ,
+                | Authors
+            li
+              a.nav-link href="/license.html"
+                span.entypo &copy;
+                | License
+
+      section.sidebar-block
+        h5.sidebar-title
+          a href="/chapters" Chapters Index
+        ol.navigation.chapters-list
+          | {% for chapter in site.chapters %}
+          |   {% capture url %}/chapters/{{ chapter | replace: ' ', '_' | downcase }}{% endcapture %}
+          |   {% capture index_url %}{{ url }}/index.html{% endcapture %}
+          li.chapter
+            div class=["sidebar-subtitle"]
+              strong
+                a.chapter-title href="{{ url }}"
+                  | {{ chapter }}
+          | {% endfor %}

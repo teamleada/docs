@@ -1,0 +1,7 @@
+.rvmrc
+_deploy
+
+*.swp
+*.swo
+
+.DS_Store
