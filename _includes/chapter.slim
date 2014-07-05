@@ -13,6 +13,9 @@ html
 
       section.content
         article.content-block
+          h2
+            | {{ page.title }}
           | {{ content }}
+
         | {% convert footer.slim %}
     | {% convert sidebar.slim %}

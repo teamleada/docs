@@ -1,0 +1,39 @@
+aside#sidebar
+  section.sidebar-block.block-short
+    nav.navigation.pages-nav.home-nav
+      h6
+        a.nav-link href="/"
+          span.entypo &oacute;
+          | Leada Docs
+      small.thin.dimmed
+        | (last updated {{ site.time | date: "%d %B, %Y" }})
+
+  section.sidebar-block
+    nav.navigation.pages-nav
+      ul.plain-list.inline-list
+        li
+          a.nav-link href="/contributing"
+            span.entypo 6
+            | Contribute
+        li
+          a.nav-link href="/authors"
+            span.entypo ,
+            | Authors
+        li
+          a.nav-link href="/license.html"
+            span.entypo &copy;
+            | License
+
+  section.sidebar-block
+    h5.sidebar-title
+      a href="/chapters" Chapters Index
+    ol.navigation.chapters-list
+      | {% for chapter in site.chapters %}
+      |   {% capture url %}/chapters/{{ chapter | replace: ' ', '_' | downcase }}{% endcapture %}
+      |   {% capture index_url %}{{ url }}/index.html{% endcapture %}
+      li.chapter
+        div class=["sidebar-subtitle"]
+          strong
+            a.chapter-title href="{{ url }}"
+              | {{ chapter }}
+      | {% endfor %}
