@@ -7,6 +7,8 @@ Documentation for Leada
     bundle install
     rake
 
+Go to localhost:4002 to see the site.
+
 ## Deploying
 
 First time only:
