@@ -9,6 +9,15 @@ Documentation for Leada
 
 ## Deploying
 
+First time only:
+
+    mkdir _deploy
+    cd _deploy
+    git remote add origin git@github.com:teamleada/docs.git
+    cd ..
+
+Then, you only need to run:
+
     rake deploy
 
 ## Contributing
