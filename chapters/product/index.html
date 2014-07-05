@@ -9,6 +9,7 @@ chapter: Product
 
 <ul>
 {% for page in site.pages %}
+  {{ page.url }}
   {% if page.url contains url %}
     {% unless page.url == indexurl %}
   <li><a href="{{ page.url | replace: '.html', '' }}">{{ page.title }}</a></li>
