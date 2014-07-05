@@ -28,6 +28,10 @@ task :deploy do
   puts "Generating site from source."
   Rake::Task[:generate].execute
   cd "#{deploy_dir}" do
+    system("git init")
+    system("git remote add origin git@github.com:teamleada/docs.git")
+    system("git pull")
+    system("git checkout gh-pages")
     system("git add . --all")
     system("git add -u")
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
