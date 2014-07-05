@@ -1,7 +1,15 @@
-# The Rails Book
+# Docs
 
-The Rails Book is a book about general web development applied using the Ruby on Rails framework.
-It is open source so we want you to add/edit/fix content as you see fit, just submit a pull request!
+Documentation for Leada
+
+## Setup
+
+    bundle install
+    rake
+
+## Deploying
+
+    rake deploy
 
 ## Contributing
 
