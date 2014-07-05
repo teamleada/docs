@@ -2,6 +2,15 @@
 
 Documentation for Leada
 
+## Setup
+
+    bundle install
+    rake
+
+## Deploying
+
+    rake deploy
+
 ## Contributing
 
 ## License
